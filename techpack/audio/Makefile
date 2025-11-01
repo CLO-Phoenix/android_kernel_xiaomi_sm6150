@@ -32,6 +32,7 @@ ifeq ($(CONFIG_ARCH_SDMSHRIKE), y)
 include $(srctree)/techpack/audio/config/sm8150auto.conf
 export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/sm8150auto.conf)
 endif
+<<<<<<< HEAD
 ifeq ($(CONFIG_MACH_XIAOMI_COURBET), y)
 include $(srctree)/techpack/audio/config/xiaomi/courbetauto.conf
 export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/xiaomi/courbetauto.conf)
@@ -55,6 +56,11 @@ endif
 ifeq ($(CONFIG_MACH_XIAOMI_TUCANA), y)
 include $(srctree)/techpack/audio/config/xiaomi/tucanaauto.conf
 export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/xiaomi/tucanaauto.conf)
+=======
+ifeq ($(CONFIG_ARCH_TRINKET), y)
+include $(srctree)/techpack/audio/config/trinketauto.conf
+export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/trinketauto.conf)
+>>>>>>> 1adbb9f8c765880c851ce9ee613fc7dbc28c702e
 endif
 
 # Use USERINCLUDE when you must reference the UAPI directories only.

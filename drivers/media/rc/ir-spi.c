@@ -1,14 +1,8 @@
-/*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd.
- * Copyright (C) 2021 XiaoMi, Inc.
- * Author: Andi Shyti <andi.shyti@samsung.it>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation.
- *
- * SPI driven IR LED device driver
- */
+// SPDX-License-Identifier: GPL-2.0
+// SPI driven IR LED device driver
+//
+// Copyright (c) 2016 Samsung Electronics Co., Ltd.
+// Copyright (c) Andi Shyti <andi@etezian.org>
 
 #include <asm/delay.h>
 #include <linux/compat.h>
@@ -83,6 +77,18 @@ static ssize_t ir_spi_chardev_write(struct file *file,
 
 		idata->xfer.len = length;
 		please_free = true;
+static int ir_spi_set_duty_cycle(struct rc_dev *dev, u32 duty_cycle)
+{
+	struct ir_spi_data *idata = dev->priv;
+	int bits = (duty_cycle * 15) / 100;
+
+	idata->pulse = GENMASK(bits, 0);
+
+	if (idata->negated) {
+		idata->pulse = ~idata->pulse;
+		idata->space = 0xffff;
+	} else {
+		idata->space = 0;
 	}
 
 	if (copy_from_user(idata->buffer, buffer, length)) {
@@ -290,6 +296,6 @@ static struct spi_driver ir_spi_driver = {
 
 module_spi_driver(ir_spi_driver);
 
-MODULE_AUTHOR("Andi Shyti <andi.shyti@samsung.com>");
+MODULE_AUTHOR("Andi Shyti <andi@etezian.org>");
 MODULE_DESCRIPTION("SPI IR LED");
 MODULE_LICENSE("GPL v2");
