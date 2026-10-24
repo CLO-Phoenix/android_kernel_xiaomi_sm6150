@@ -562,6 +562,8 @@ def gen_blueprints(
     f.write('    "%s",\n' % rel_arch_asm_kbuild)
     f.write('    "%s",\n' % rel_asm_generic_kbuild)
     f.write('    "%s",\n' % makefile)
+    f.write('    "drivers/staging/android/uapi/ion.h",\n')
+    f.write('    "drivers/staging/android/uapi/msm_ion.h",\n')
 
     if header_arch == "arm":
       f.write('    "%s",\n' % arm_syscall_tbl)

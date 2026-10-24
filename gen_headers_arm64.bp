@@ -5,6 +5,8 @@ gen_headers_srcs_arm64 = [
     "arch/arm64/include/uapi/asm/Kbuild",
     "include/uapi/asm-generic/Kbuild.asm",
     "Makefile",
+    "drivers/staging/android/uapi/ion.h",
+    "drivers/staging/android/uapi/msm_ion.h",
     "include/uapi/**/*.h",
     "arch/arm64/include/uapi/**/*.h",
 ]
