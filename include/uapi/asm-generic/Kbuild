@@ -1,0 +1,3 @@
+# bionic provides signal.h; exporting it shadows bionic and redefines
+# struct sigaction for userspace.
+no-export-headers += signal.h

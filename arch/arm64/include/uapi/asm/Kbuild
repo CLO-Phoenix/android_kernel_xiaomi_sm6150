@@ -19,3 +19,7 @@ generic-y += swab.h
 generic-y += termbits.h
 generic-y += termios.h
 generic-y += types.h
+
+# bionic provides signal.h; exporting it shadows bionic and redefines
+# struct sigaction for userspace.
+no-export-headers += signal.h
