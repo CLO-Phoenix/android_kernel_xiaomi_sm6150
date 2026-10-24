@@ -646,7 +646,7 @@ def gen_blueprints(
 
     f.write('genrule {\n')
     f.write('    name: "qti_generate_kernel_headers_%s",\n' % header_arch)
-    f.write('    tools: ["%s"],\n' % headers_install_sh)
+    f.write('    tools: ["%s", "unifdef"],\n' % headers_install_sh)
     f.write('    tool_files: [\n')
     f.write('        "%s",\n' % kernel_headers_py)
 
