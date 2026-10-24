@@ -17,6 +17,8 @@ gen_headers_exclude_srcs_arm64 = [
 gen_headers_out_arm64 = [
 
     // Matching generic-y:
+    "asm-generic/bpf_perf_event.h",
+    "asm/bpf_perf_event.h",
 
     "asm/errno.h",
     "asm/ioctl.h",
@@ -37,6 +39,16 @@ gen_headers_out_arm64 = [
     "asm/types.h",
 
     // From include/uapi/**/*.h
+    "linux/bpfilter.h",
+    "misc/drv8846.h",
+    "linux/akm09970.h",
+    "linux/btf.h",
+    "linux/leds-aw3644.h",
+    "linux/wireguard.h",
+    "linux/ncsi.h",
+    "linux/if_xdp.h",
+    "linux/xdp_diag.h",
+    "linux/close_range.h",
 
     "asm-generic/auxvec.h",
     "asm-generic/bitsperlong.h",
@@ -189,7 +201,6 @@ gen_headers_out_arm64 = [
     "linux/dm-ioctl.h",
     "linux/dm-log-userspace.h",
     "linux/dma-buf.h",
-    "linux/dn.h",
     "linux/dqblk_xfs.h",
     "linux/edd.h",
     "linux/efs_fs_sb.h",
@@ -403,7 +414,6 @@ gen_headers_out_arm64 = [
     "linux/netfilter.h",
     "linux/netfilter_arp.h",
     "linux/netfilter_bridge.h",
-    "linux/netfilter_decnet.h",
     "linux/netfilter_ipv4.h",
     "linux/netfilter_ipv6.h",
     "linux/netlink.h",
