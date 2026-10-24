@@ -546,6 +546,11 @@ def gen_blueprints(
   error_count += find_out(
       verbose, module_dir, arch_prefix, rel_glob, None, arch_out)
 
+  # bionic provides these UAPI headers. Exporting the kernel copies makes the
+  # generated header directory shadow bionic and redefines struct sigaction.
+  generic_out = [h for h in generic_out if h != 'asm-generic/signal.h']
+  arch_out = [h for h in arch_out if h != 'asm/signal.h']
+
   if error_count != 0:
     return error_count
 
