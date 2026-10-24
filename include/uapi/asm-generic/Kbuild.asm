@@ -21,7 +21,6 @@ mandatory-y += setup.h
 mandatory-y += shmbuf.h
 mandatory-y += sigcontext.h
 mandatory-y += siginfo.h
-mandatory-y += signal.h
 mandatory-y += socket.h
 mandatory-y += sockios.h
 mandatory-y += stat.h
